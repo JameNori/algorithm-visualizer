@@ -1,5 +1,8 @@
+import { ArrayBarChart } from "./components/ArrayBarChart";
+import { createInitialBars } from "./algorithms/utils";
+
 function App() {
-  return <h1 className="text-3xl font-bold text-blue-600">Tailwind is working</h1>
+  return <ArrayBarChart bars={createInitialBars([100, 50, 20, 80, 30])} />;
 }
 
-export default App
+export default App;
