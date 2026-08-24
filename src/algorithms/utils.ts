@@ -8,4 +8,12 @@ function createInitialBars(values: number[]): ArrayBar[] {
   }));
 }
 
-export { createInitialBars };
+function resetBarStates(bars: ArrayBar[]): void {
+  bars.forEach((bar) => {
+    if (bar.state !== "sorted") {
+      bar.state = "normal";
+    }
+  });
+}
+
+export { createInitialBars, resetBarStates };
