@@ -16,4 +16,16 @@ function resetBarStates(bars: ArrayBar[]): void {
   });
 }
 
-export { createInitialBars, resetBarStates };
+function generateRandomValues(
+  count: number,
+  min: number,
+  max: number,
+): number[] {
+  const values: number[] = [];
+  for (let i = 0; i < count; i++) {
+    values.push(Math.floor(Math.random() * (max - min + 1) + min));
+  }
+  return values;
+}
+
+export { createInitialBars, resetBarStates, generateRandomValues };
