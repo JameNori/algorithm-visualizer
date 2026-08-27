@@ -17,7 +17,7 @@ export function useSortAnimation(steps: ArrayBar[][]) {
     }
   };
 
-  const reset = () => {
+  const resetStep = () => {
     setCurrentStep(0);
   };
 
@@ -27,7 +27,7 @@ export function useSortAnimation(steps: ArrayBar[][]) {
     currentBars,
     nextStep,
     previousStep,
-    reset,
+    resetStep,
     isFinished,
   };
 }
