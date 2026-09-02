@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { type ArrayBar } from "../algorithms/types";
 
-export function useSortAnimation(steps: ArrayBar[][]) {
+export function useSortAnimation<T>(steps: T[]) {
   const [currentStep, setCurrentStep] = useState(0);
-  const currentBars = steps[currentStep];
+  const currentItem = steps[currentStep];
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
@@ -24,7 +23,7 @@ export function useSortAnimation(steps: ArrayBar[][]) {
   const isFinished = currentStep === steps.length - 1;
 
   return {
-    currentBars,
+    currentItem,
     nextStep,
     previousStep,
     resetStep,

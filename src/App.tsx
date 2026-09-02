@@ -29,7 +29,7 @@ function App() {
     () => getBubbleSortSteps(createInitialBars(values)),
     [values],
   );
-  const { currentBars, nextStep, resetStep, isFinished } =
+  const { currentItem, nextStep, resetStep, isFinished } =
     useSortAnimation(steps);
   const { isPlaying, togglePlay, pause } = useAutoPlay(
     nextStep,
@@ -50,10 +50,28 @@ function App() {
 
   return (
     <div className="p-8">
-      <ArrayBarChart bars={currentBars} />
-      <div className="mt-6 flex flex-wrap items-center gap-3">
+      <ArrayBarChart bars={currentItem.bars} />
+      <div className="mt-4 flex items-center gap-3 text-sm">
+        <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">
+          Comparisons{" "}
+          <span className="font-semibold text-gray-900">
+            {currentItem.comparisons}
+          </span>
+        </span>
+        <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">
+          Swaps{" "}
+          <span className="font-semibold text-gray-900">
+            {currentItem.swaps}
+          </span>
+        </span>
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-3">
-          <button onClick={handleNext} disabled={isFinished} className={BUTTON_PRIMARY}>
+          <button
+            onClick={handleNext}
+            disabled={isFinished}
+            className={BUTTON_PRIMARY}
+          >
             Next
           </button>
           <button

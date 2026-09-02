@@ -13,4 +13,10 @@ interface ArrayBar {
   state: BarState;
 }
 
-export { type BarState, STATE_COLORS, type ArrayBar };
+interface SortStep {
+  bars: ArrayBar[];
+  comparisons: number;
+  swaps: number;
+}
+
+export { type BarState, STATE_COLORS, type ArrayBar, type SortStep };
